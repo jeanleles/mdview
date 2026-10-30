@@ -22,6 +22,8 @@ const files: LocalFile[] = [
 describe("NavigationPanelClient", () => {
   beforeEach(() => {
     pathname = "/files/file-b";
+    document.documentElement.classList.remove("dark");
+    window.localStorage.clear();
   });
 
   it("exibe progresso e arquivo atual sem botoes sequenciais de navegacao", () => {
@@ -76,6 +78,21 @@ describe("NavigationPanelClient", () => {
     expect(logoutButton.querySelector("svg")).toBeInTheDocument();
     expect(uploadButton).not.toHaveTextContent("Enviar arquivo Markdown");
     expect(logoutButton).not.toHaveTextContent("Sair");
+  });
+
+  it("alterna e persiste o tema entre claro e escuro", () => {
+    render(<NavigationPanelClient files={files} bookmarks={[]} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Ativar modo escuro" }));
+
+    expect(document.documentElement.classList).toContain("dark");
+    expect(window.localStorage.getItem("mdview-theme")).toBe("dark");
+    expect(screen.getByRole("button", { name: "Ativar modo claro" })).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Ativar modo claro" }));
+
+    expect(document.documentElement.classList).not.toContain("dark");
+    expect(window.localStorage.getItem("mdview-theme")).toBe("light");
   });
 
   it("abre e fecha o drawer mobile", () => {

@@ -32,6 +32,10 @@ export default function NavigationPanelClient({
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [liveBookmarks, setLiveBookmarks] = useState<BookmarkRecord[]>([]);
+  const [darkMode, setDarkMode] = useState(
+    () => typeof document !== "undefined" &&
+      document.documentElement.classList.contains("dark")
+  );
   const fileInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
   const pathname = usePathname();
@@ -58,6 +62,13 @@ export default function NavigationPanelClient({
     window.addEventListener(BOOKMARK_PROGRESS_EVENT, updateBookmark);
     return () => window.removeEventListener(BOOKMARK_PROGRESS_EVENT, updateBookmark);
   }, []);
+
+  function toggleTheme() {
+    const nextDarkMode = !document.documentElement.classList.contains("dark");
+    document.documentElement.classList.toggle("dark", nextDarkMode);
+    localStorage.setItem("mdview-theme", nextDarkMode ? "dark" : "light");
+    setDarkMode(nextDarkMode);
+  }
 
   async function logout() {
     await fetch("/api/auth/logout", { method: "POST" });
@@ -112,6 +123,42 @@ export default function NavigationPanelClient({
           MDview
         </Link>
         <div className="flex items-center gap-1">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
+            aria-label={darkMode ? "Ativar modo claro" : "Ativar modo escuro"}
+            title={darkMode ? "Ativar modo claro" : "Ativar modo escuro"}
+          >
+            {darkMode ? (
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-5 w-5"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" />
+              </svg>
+            ) : (
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-5 w-5"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            )}
+          </button>
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
