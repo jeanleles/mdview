@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { calcProgress } from "@/lib/progress";
+import { emitBookmarkProgress } from "@/lib/bookmark-events";
 import ProgressBar from "./ProgressBar";
 
 interface ScrollTrackerProps {
@@ -43,6 +44,11 @@ export default function ScrollTracker({
   );
 
   useEffect(() => {
+    emitBookmarkProgress({
+      fileId,
+      scrollPercent: progressRef.current,
+    });
+
     const updateProgress = () => {
       const next = calcProgress(
         window.scrollY,
@@ -53,6 +59,7 @@ export default function ScrollTracker({
       if (next !== progressRef.current) {
         progressRef.current = next;
         setProgress(next);
+        emitBookmarkProgress({ fileId, scrollPercent: next });
       }
     };
 

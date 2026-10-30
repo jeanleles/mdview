@@ -67,4 +67,37 @@ describe("ScrollTracker", () => {
     vi.advanceTimersByTime(30000);
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
+
+  it("emits bookmark progress when scrolling changes", () => {
+    vi.useFakeTimers();
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: true }));
+    const listener = vi.fn();
+    window.addEventListener("mdview:bookmark-progress", listener);
+
+    Object.defineProperty(document.documentElement, "scrollHeight", {
+      configurable: true,
+      value: 1000,
+    });
+    Object.defineProperty(window, "innerHeight", {
+      configurable: true,
+      value: 400,
+    });
+    Object.defineProperty(window, "scrollY", {
+      configurable: true,
+      value: 300,
+    });
+
+    render(
+      <ScrollTracker
+        fileId="file-a"
+        fileName="Apostila A.md"
+        initialPercent={0}
+      />
+    );
+    fireEvent.scroll(window);
+
+    expect(listener).toHaveBeenCalled();
+    expect(listener.mock.calls[0][0]).toBeInstanceOf(CustomEvent);
+    window.removeEventListener("mdview:bookmark-progress", listener);
+  });
 });

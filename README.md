@@ -37,6 +37,12 @@ Faça login e clique em **Enviar arquivo Markdown** no topo da barra lateral. Ar
 
 Os arquivos são compartilhados globalmente e ficam armazenados diretamente no SQLite. Enviar novamente um arquivo com o mesmo nome substitui o conteúdo anterior.
 
+## Progresso de leitura
+
+O percentual de leitura é atualizado em tempo real na barra superior, na sidebar e na tela inicial durante “Última leitura”.
+
+O progresso é salvo no SQLite apenas quando o percentual muda. Após a pausa da rolagem, o sistema aguarda 2 segundos antes de persistir a posição; não há requisições periódicas enquanto o usuário permanece parado.
+
 ## Docker e Caddy
 
 Configure o DNS do domínio para apontar ao servidor, complete `.env` e execute:

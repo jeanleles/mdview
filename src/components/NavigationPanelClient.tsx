@@ -2,9 +2,13 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { LocalFile } from "@/lib/files";
 import { getBookmarkProgress, getNavButtonState } from "@/lib/navigation";
+import {
+  BOOKMARK_PROGRESS_EVENT,
+  type BookmarkProgressDetail,
+} from "@/lib/bookmark-events";
 
 export interface BookmarkRecord {
   fileId: string;
@@ -27,6 +31,7 @@ export default function NavigationPanelClient({
   const [open, setOpen] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
+  const [liveBookmarks, setLiveBookmarks] = useState<BookmarkRecord[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
   const pathname = usePathname();
@@ -41,6 +46,25 @@ export default function NavigationPanelClient({
   );
   const previous = navState.prevEnabled ? files[currentIndex - 1] : null;
   const next = navState.nextEnabled ? files[currentIndex + 1] : null;
+
+  useEffect(() => {
+    const updateBookmark = (event: Event) => {
+      const { fileId, scrollPercent } = (
+        event as CustomEvent<BookmarkProgressDetail>
+      ).detail;
+      setLiveBookmarks((current) => {
+        const existing = current.find((bookmark) => bookmark.fileId === fileId);
+        if (!existing) return [...current, { fileId, scrollPercent }];
+        if (existing.scrollPercent === scrollPercent) return current;
+        return current.map((bookmark) =>
+          bookmark.fileId === fileId ? { ...bookmark, scrollPercent } : bookmark
+        );
+      });
+    };
+
+    window.addEventListener(BOOKMARK_PROGRESS_EVENT, updateBookmark);
+    return () => window.removeEventListener(BOOKMARK_PROGRESS_EVENT, updateBookmark);
+  }, []);
 
   async function logout() {
     await fetch("/api/auth/logout", { method: "POST" });
@@ -141,7 +165,12 @@ export default function NavigationPanelClient({
         )}
         {files.map((file) => {
           const active = file.id === resolvedCurrentFileId;
-          const progress = getBookmarkProgress(file.id, bookmarks);
+          const liveProgress = liveBookmarks.find(
+            (bookmark) => bookmark.fileId === file.id
+          );
+          const progress = liveProgress
+            ? liveProgress.scrollPercent
+            : getBookmarkProgress(file.id, bookmarks);
           return (
             <Link
               key={file.id}

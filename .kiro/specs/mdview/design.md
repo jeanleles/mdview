@@ -14,6 +14,8 @@ MDview e uma aplicacao Next.js App Router para leitura pessoal de apostilas Mark
 - `src/lib/files.ts`: consultas locais por ID e listagem global.
 - `src/lib/db/schema.ts`: usuarios, arquivos, marcadores e tentativas de login.
 - `src/lib/db/index.ts`: conexao SQLite e migracoes automaticas Drizzle.
+- `src/components/ScrollTracker.tsx`: calcula e publica o progresso de leitura, salva apos 2 segundos sem rolagem e evita requisicoes repetidas.
+- `src/lib/bookmark-events.ts`: coordena em tempo real o progresso exibido pela sidebar e pela home.
 
 ## Armazenamento de arquivos
 

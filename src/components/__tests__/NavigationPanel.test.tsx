@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import NavigationPanelClient from "../NavigationPanelClient";
 import type { LocalFile } from "@/lib/files";
@@ -54,6 +54,20 @@ describe("NavigationPanelClient", () => {
   it("mostra estado vazio sem progresso persistido como zero", () => {
     render(<NavigationPanelClient files={[]} bookmarks={[]} />);
     expect(screen.getByText("Nenhum arquivo encontrado")).toBeInTheDocument();
+  });
+
+  it("atualiza o percentual da sidebar em tempo real", () => {
+    render(<NavigationPanelClient files={files} bookmarks={[]} />);
+
+    act(() => {
+      window.dispatchEvent(
+        new CustomEvent("mdview:bookmark-progress", {
+          detail: { fileId: "file-b", scrollPercent: 73 },
+        })
+      );
+    });
+
+    expect(screen.getByText("73%")).toBeInTheDocument();
   });
 
   it("abre e fecha o drawer mobile", () => {

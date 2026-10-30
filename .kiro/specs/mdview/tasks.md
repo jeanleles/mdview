@@ -7,6 +7,8 @@
 - [x] Banco SQLite com Drizzle e migracoes automaticas.
 - [x] Renderizacao Markdown segura e responsiva.
 - [x] Marcadores de progresso por usuario.
+- [x] Atualizacao em tempo real da barra, sidebar e home durante a leitura.
+- [x] Salvamento otimizado de progresso apenas quando o percentual muda, com debounce de 2 segundos.
 - [x] Navegacao entre arquivos e home.
 - [x] Docker, Caddy e seed.
 - [x] Tabela global `files` com ID, nome, conteudo, tamanho e datas.

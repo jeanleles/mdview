@@ -6,6 +6,7 @@ import { db } from "@/lib/db";
 import { bookmarks, users } from "@/lib/db/schema";
 import { verifySessionToken } from "@/lib/auth";
 import { listLocalFiles } from "@/lib/files";
+import HomeReadingProgress from "@/components/HomeReadingProgress";
 
 export const instant = false;
 
@@ -57,9 +58,11 @@ export default async function HomePage() {
         <h1 className="mb-4 text-3xl font-bold text-gray-950 dark:text-gray-100">
           {lastFile.name}
         </h1>
-        <p className="mb-6 text-base leading-relaxed text-gray-600 dark:text-gray-300">
-          Progresso salvo: {Math.max(0, Math.min(100, Math.floor(scrollPercent)))}%
-        </p>
+        <HomeReadingProgress
+          key={`${lastFileId}-${scrollPercent}`}
+          fileId={lastFileId}
+          initialPercent={scrollPercent}
+        />
         <Link
           href={`/files/${lastFileId}`}
           className="min-h-11 flex items-center rounded-lg bg-blue-700 px-6 py-3 text-base font-semibold text-white hover:bg-blue-800"
