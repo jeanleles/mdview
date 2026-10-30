@@ -41,6 +41,8 @@ Os arquivos são compartilhados globalmente e ficam armazenados diretamente no S
 
 O percentual de leitura é atualizado em tempo real na barra superior, na sidebar e na tela inicial durante “Última leitura”.
 
+Na página inicial, abaixo da seção “Última leitura”, a seção “Todos os arquivos” lista todos os arquivos Markdown disponíveis para acesso direto.
+
 O progresso é salvo no SQLite apenas quando o percentual muda. Após a pausa da rolagem, o sistema aguarda 2 segundos antes de persistir a posição; não há requisições periódicas enquanto o usuário permanece parado.
 
 ## Docker e Caddy

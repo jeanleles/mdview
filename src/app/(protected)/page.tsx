@@ -49,52 +49,61 @@ export default async function HomePage() {
     }
   }
 
-  if (lastFileId && lastFile) {
-    return (
-      <main className="mx-auto flex min-h-[calc(100vh-1px)] w-full max-w-3xl flex-col items-start justify-center px-6 py-16">
-        <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-400">
-          Última leitura
-        </p>
-        <h1 className="mb-4 text-3xl font-bold text-gray-950 dark:text-gray-100">
-          {lastFile.name}
-        </h1>
-        <HomeReadingProgress
-          key={`${lastFileId}-${scrollPercent}`}
-          fileId={lastFileId}
-          initialPercent={scrollPercent}
-        />
-        <Link
-          href={`/files/${lastFileId}`}
-          className="min-h-11 flex items-center rounded-lg bg-blue-700 px-6 py-3 text-base font-semibold text-white hover:bg-blue-800"
-        >
-          Retomar leitura
-        </Link>
-      </main>
-    );
-  }
-
   return (
-    <main className="mx-auto flex min-h-[calc(100vh-1px)] w-full max-w-3xl flex-col justify-center px-6 py-16">
-      <h1 className="mb-3 text-3xl font-bold text-gray-950 dark:text-gray-100">
-        Apostilas
-      </h1>
-      {files.length === 0 ? (
-        <p className="text-base text-gray-600 dark:text-gray-300">
-          Nenhum arquivo encontrado
-        </p>
-      ) : (
-        <div className="flex flex-col gap-2">
-          {files.map((file) => (
-            <Link
-              key={file.id}
-              href={`/files/${file.id}`}
-              className="min-h-11 flex items-center rounded-lg border border-gray-200 px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 dark:border-gray-800 dark:text-gray-100 dark:hover:bg-gray-900"
-            >
-              {file.name}
-            </Link>
-          ))}
-        </div>
-      )}
+    <main className="mx-auto flex min-h-[calc(100vh-1px)] w-full max-w-3xl flex-col px-6 py-16">
+      {lastFileId && lastFile ? (
+        <section className="w-full" aria-labelledby="last-reading-title">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-400">
+            Última leitura
+          </p>
+          <h1
+            id="last-reading-title"
+            className="mb-4 text-3xl font-bold text-gray-950 dark:text-gray-100"
+          >
+            {lastFile.name}
+          </h1>
+          <HomeReadingProgress
+            key={`${lastFileId}-${scrollPercent}`}
+            fileId={lastFileId}
+            initialPercent={scrollPercent}
+          />
+          <Link
+            href={`/files/${lastFileId}`}
+            className="min-h-11 flex items-center rounded-lg bg-blue-700 px-6 py-3 text-base font-semibold text-white hover:bg-blue-800"
+          >
+            Retomar leitura
+          </Link>
+        </section>
+      ) : null}
+
+      <section
+        className={`${lastFileId && lastFile ? "mt-10 border-t border-gray-200 pt-8 dark:border-gray-800" : ""} w-full`}
+        aria-labelledby="all-files-title"
+      >
+        <h2
+          id="all-files-title"
+          className="mb-4 text-2xl font-bold text-gray-950 dark:text-gray-100"
+        >
+          Todos os arquivos
+        </h2>
+        {files.length === 0 ? (
+          <p className="text-base text-gray-600 dark:text-gray-300">
+            Nenhum arquivo encontrado
+          </p>
+        ) : (
+          <div className="flex flex-col gap-2">
+            {files.map((file) => (
+              <Link
+                key={file.id}
+                href={`/files/${file.id}`}
+                className="min-h-11 flex items-center rounded-lg border border-gray-200 px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 dark:border-gray-800 dark:text-gray-100 dark:hover:bg-gray-900"
+              >
+                {file.name}
+              </Link>
+            ))}
+          </div>
+        )}
+      </section>
     </main>
   );
 }

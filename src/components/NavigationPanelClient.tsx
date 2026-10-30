@@ -138,10 +138,23 @@ export default function NavigationPanelClient({
           <button
             type="button"
             onClick={() => setOpen(false)}
-            className="min-h-11 min-w-11 md:hidden rounded-lg px-3 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
+            className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 md:hidden dark:text-gray-200 dark:hover:bg-gray-800"
             aria-label="Fechar painel"
+            title="Fechar painel"
           >
-            Fechar
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5"
+            >
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
           </button>
         </div>
       </div>
@@ -233,10 +246,24 @@ export default function NavigationPanelClient({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed left-3 top-3 z-40 min-h-11 min-w-11 rounded-lg border border-gray-300 bg-white px-3 shadow md:hidden dark:border-gray-700 dark:bg-gray-950"
+        className="fixed left-3 top-3 z-40 flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-gray-300 bg-white shadow md:hidden dark:border-gray-700 dark:bg-gray-950"
         aria-label="Abrir painel de navegação"
+        title="Abrir painel de navegação"
       >
-        Menu
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-5 w-5"
+        >
+          <path d="M4 6h16" />
+          <path d="M4 12h16" />
+          <path d="M4 18h16" />
+        </svg>
       </button>
       {open && (
         <button

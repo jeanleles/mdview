@@ -81,10 +81,16 @@ describe("NavigationPanelClient", () => {
   it("abre e fecha o drawer mobile", () => {
     render(<NavigationPanelClient files={files} bookmarks={[]} />);
 
-    fireEvent.click(screen.getByRole("button", { name: "Abrir painel de navegação" }));
+    const openButton = screen.getByRole("button", { name: "Abrir painel de navegação" });
+    expect(openButton.querySelector("svg")).toBeInTheDocument();
+    expect(openButton).not.toHaveTextContent("Menu");
+    fireEvent.click(openButton);
     expect(screen.getByRole("complementary", { name: "Painel de navegação" })).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("button", { name: "Fechar painel" }));
+    const closeButton = screen.getByRole("button", { name: "Fechar painel" });
+    expect(closeButton.querySelector("svg")).toBeInTheDocument();
+    expect(closeButton).not.toHaveTextContent("Fechar");
+    fireEvent.click(closeButton);
 
     fireEvent.click(screen.getByRole("button", { name: "Abrir painel de navegação" }));
     fireEvent.click(screen.getByRole("button", { name: "Fechar painel tocando fora" }));
