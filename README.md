@@ -61,3 +61,23 @@ docker compose --profile seed run --rm seed
 ```
 
 Os dados ficam em `sqlite_data:/app/data`; os certificados TLS ficam em `caddy_data`.
+
+## Atualizar uma instalação existente
+
+Na VPS, dentro da pasta da aplicação, execute:
+
+```bash
+./scripts/update.sh
+```
+
+Na primeira utilização, conceda permissão de execução:
+
+```bash
+chmod 755 scripts/update.sh
+```
+
+O script faz `git pull --ff-only`, reconstrói somente o serviço `app`, atualiza o
+container sem recriar dependências ou remover volumes e verifica
+`http://127.0.0.1:3000/login` dentro do container. Ele não executa
+`docker compose down` nem remove volumes; os dados do SQLite e os arquivos Markdown
+permanecem preservados.
