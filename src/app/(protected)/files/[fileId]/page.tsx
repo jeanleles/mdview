@@ -17,7 +17,7 @@
  *   - Minimum line-height: 1.5 — enforced via `leading-relaxed` (1.625) and
  *     inline style.
  *   - No horizontal overflow from 320px wide viewports — enforced via
- *     `min-w-0 overflow-x-hidden max-w-prose` on the content wrapper.
+ *     `min-w-0 overflow-x-hidden max-w-[600px]` on the content wrapper.
  *
  * Future tasks:
  *   - BookmarkRestorer: will be added in task 7.7
@@ -163,7 +163,7 @@ async function FileContent({ fileId }: FileContentProps) {
   return (
     <>
       {bookmarkError && (
-        <div role="alert" className="mx-auto max-w-prose px-4 pt-4 text-sm text-red-700">
+        <div role="alert" className="mx-auto max-w-[600px] px-4 pt-4 text-sm text-red-700">
           {bookmarkError}
         </div>
       )}
@@ -178,7 +178,7 @@ async function FileContent({ fileId }: FileContentProps) {
       {/*
        * Prose container
        * ───────────────
-       * - max-w-prose   → limits line length for readability (~65ch)
+       * - max-w-[600px] → limits the reading column to 600px
        * - min-w-0        → prevents flex/grid children from overflowing
        * - overflow-x-hidden → no horizontal scroll on narrow viewports (req 3.2)
        * - text-base      → font-size: 1rem (16px) — requirement 3.2 / 7.5
@@ -190,7 +190,7 @@ async function FileContent({ fileId }: FileContentProps) {
       <div
         className="
           w-full min-w-0 overflow-x-hidden
-          max-w-prose mx-auto
+          max-w-[600px] mx-auto
           px-4 sm:px-6
           py-6 sm:py-10
           text-base leading-relaxed
@@ -239,7 +239,7 @@ function FileLoadingSkeleton() {
       aria-label="Carregando arquivo…"
       aria-busy="true"
       className="
-        w-full max-w-prose mx-auto
+        w-full max-w-[600px] mx-auto
         px-4 sm:px-6 py-6 sm:py-10
         animate-pulse space-y-4
       "

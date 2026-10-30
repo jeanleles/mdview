@@ -24,7 +24,7 @@ describe("NavigationPanelClient", () => {
     pathname = "/files/file-b";
   });
 
-  it("exibe progresso, arquivo atual e dois botoes de navegacao", () => {
+  it("exibe progresso e arquivo atual sem botoes sequenciais de navegacao", () => {
     render(
       <NavigationPanelClient
         files={files}
@@ -41,14 +41,8 @@ describe("NavigationPanelClient", () => {
       "aria-current",
       "page"
     );
-    expect(screen.getByText("Arquivo Anterior").closest("a")).toHaveAttribute(
-      "href",
-      "/files/file-a"
-    );
-    expect(screen.getByText("Próximo Arquivo").closest("a")).toHaveAttribute(
-      "href",
-      "/files/file-c"
-    );
+    expect(screen.queryByText("Arquivo Anterior")).not.toBeInTheDocument();
+    expect(screen.queryByText("Próximo Arquivo")).not.toBeInTheDocument();
   });
 
   it("mostra estado vazio sem progresso persistido como zero", () => {
@@ -68,6 +62,20 @@ describe("NavigationPanelClient", () => {
     });
 
     expect(screen.getByText("73%")).toBeInTheDocument();
+  });
+
+  it("exibe upload e sair como ações apenas com ícones", () => {
+    render(<NavigationPanelClient files={files} bookmarks={[]} />);
+
+    const uploadButton = screen.getByRole("button", {
+      name: "Enviar arquivo Markdown",
+    });
+    const logoutButton = screen.getByRole("button", { name: "Sair" });
+
+    expect(uploadButton.querySelector("svg")).toBeInTheDocument();
+    expect(logoutButton.querySelector("svg")).toBeInTheDocument();
+    expect(uploadButton).not.toHaveTextContent("Enviar arquivo Markdown");
+    expect(logoutButton).not.toHaveTextContent("Sair");
   });
 
   it("abre e fecha o drawer mobile", () => {

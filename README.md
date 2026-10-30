@@ -33,7 +33,7 @@ O script exige uma senha com pelo menos 12 caracteres, usa bcrypt com custo 10 e
 
 ## Arquivos Markdown
 
-Faça login e clique em **Enviar arquivo Markdown** no topo da barra lateral. Arquivos podem ter até 2 MB e devem usar a extensão `.md`.
+Faça login e clique no ícone de upload ao lado da logo `MDview`, no topo da barra lateral. Selecione qualquer arquivo da lista para estudá-lo aleatoriamente. Arquivos podem ter até 2 MB e devem usar a extensão `.md`.
 
 Os arquivos são compartilhados globalmente e ficam armazenados diretamente no SQLite. Enviar novamente um arquivo com o mesmo nome substitui o conteúdo anterior.
 

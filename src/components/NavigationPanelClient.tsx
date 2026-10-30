@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { LocalFile } from "@/lib/files";
-import { getBookmarkProgress, getNavButtonState } from "@/lib/navigation";
+import { getBookmarkProgress } from "@/lib/navigation";
 import {
   BOOKMARK_PROGRESS_EVENT,
   type BookmarkProgressDetail,
@@ -39,13 +39,6 @@ export default function NavigationPanelClient({
     ? pathname.split("/")[2]
     : undefined;
   const resolvedCurrentFileId = currentFileId ?? pathnameFileId;
-  const currentIndex = files.findIndex((file) => file.id === resolvedCurrentFileId);
-  const navState = getNavButtonState(
-    files.map((file) => file.id),
-    currentIndex
-  );
-  const previous = navState.prevEnabled ? files[currentIndex - 1] : null;
-  const next = navState.nextEnabled ? files[currentIndex + 1] : null;
 
   useEffect(() => {
     const updateBookmark = (event: Event) => {
@@ -118,14 +111,39 @@ export default function NavigationPanelClient({
         >
           MDview
         </Link>
-        <button
-          type="button"
-          onClick={() => setOpen(false)}
-          className="min-h-11 min-w-11 md:hidden rounded-lg px-3 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
-          aria-label="Fechar painel"
-        >
-          Fechar
-        </button>
+        <div className="flex items-center gap-1">
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={uploading}
+            className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-60 dark:text-gray-200 dark:hover:bg-gray-800"
+            aria-label={uploading ? "Enviando arquivo" : "Enviar arquivo Markdown"}
+            title={uploading ? "Enviando..." : "Enviar arquivo Markdown"}
+          >
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5"
+            >
+              <path d="M12 16V4" />
+              <path d="M7 9l5-5 5 5" />
+              <path d="M5 20h14" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            className="min-h-11 min-w-11 md:hidden rounded-lg px-3 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
+            aria-label="Fechar painel"
+          >
+            Fechar
+          </button>
+        </div>
       </div>
 
       <nav className="min-h-0 flex-1 overflow-y-auto p-3" aria-label="Arquivos">
@@ -140,14 +158,6 @@ export default function NavigationPanelClient({
             if (file) void uploadFile(file);
           }}
         />
-        <button
-          type="button"
-          onClick={() => fileInputRef.current?.click()}
-          disabled={uploading}
-          className="mb-3 min-h-11 w-full rounded-lg bg-blue-700 px-4 py-2 text-base font-semibold text-white hover:bg-blue-800 disabled:opacity-60"
-        >
-          {uploading ? "Enviando..." : "Enviar arquivo Markdown"}
-        </button>
         {uploadError && (
           <div role="alert" className="mb-3 rounded-lg bg-red-50 p-3 text-sm text-red-700">
             {uploadError}
@@ -193,41 +203,27 @@ export default function NavigationPanelClient({
         })}
       </nav>
 
-      {resolvedCurrentFileId && (
-        <div className="grid grid-cols-2 gap-2 border-t border-gray-200 p-3 dark:border-gray-800">
-          {previous ? (
-            <Link
-              href={`/files/${previous.id}`}
-              className="min-h-11 rounded-lg border border-gray-300 px-3 py-2 text-center text-sm font-medium"
-            >
-              Arquivo Anterior
-            </Link>
-          ) : (
-            <button type="button" disabled className="min-h-11 rounded-lg border px-3 py-2 text-sm opacity-50">
-              Arquivo Anterior
-            </button>
-          )}
-          {next ? (
-            <Link
-              href={`/files/${next.id}`}
-              className="min-h-11 rounded-lg border border-gray-300 px-3 py-2 text-center text-sm font-medium"
-            >
-              Próximo Arquivo
-            </Link>
-          ) : (
-            <button type="button" disabled className="min-h-11 rounded-lg border px-3 py-2 text-sm opacity-50">
-              Próximo Arquivo
-            </button>
-          )}
-        </div>
-      )}
-
       <button
         type="button"
         onClick={logout}
-        className="m-3 min-h-11 rounded-lg border border-gray-300 px-4 py-2 text-base font-medium hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-900"
+        className="m-3 flex min-h-11 min-w-11 self-end items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-900"
+        aria-label="Sair"
+        title="Sair"
       >
-        Sair
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-5 w-5"
+        >
+          <path d="M10 17l5-5-5-5" />
+          <path d="M15 12H3" />
+          <path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5" />
+        </svg>
       </button>
     </aside>
   );
