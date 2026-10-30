@@ -1,0 +1,466 @@
+{
+  "pbtResults": {
+    "2.4 Escrever property test para rate limiting": {
+      "status": "passed",
+      "lastRunTimestamp": 1793285726108
+    },
+    "4.2 Escrever property test para ordenação de arquivos": {
+      "status": "passed",
+      "lastRunTimestamp": 1793286553663
+    },
+    "7.3 Escrever property test para botões de navegação": {
+      "status": "passed",
+      "lastRunTimestamp": 1793287128530
+    }
+  },
+  "executionHistory": {
+    "1.1 Inicializar projeto Next.js com App Router e TypeScript": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283056968
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283066388
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284670823
+      }
+    ],
+    "1.2 Configurar schema Drizzle ORM e conexão com banco de dados": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283057831
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284676222
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284841911
+      }
+    ],
+    "1.3 Configurar variáveis de ambiente e tipos TypeScript": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283057955
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283068865
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284673558
+      }
+    ],
+    "2.1 Implementar funções de JWT e hash de senha": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283058115
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284844511
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284959002
+      }
+    ],
+    "2.2 Escrever testes unitários para auth": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283058193
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284967572
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286101443
+      }
+    ],
+    "2.3 Implementar lógica de rate limiting": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283058266
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284846974
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284961730
+      }
+    ],
+    "2.4 Escrever property test para rate limiting": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283058348
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284970092
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286104471
+      }
+    ],
+    "2.5 Implementar Route Handlers de autenticação": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283058433
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284972554
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286107312
+      }
+    ],
+    "2.6 Implementar middleware de proteção de rotas": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283058577
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284975092
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286110030
+      }
+    ],
+    "2.7 Implementar página e formulário de login": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283058665
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284977638
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286112885
+      }
+    ],
+    "3. Checkpoint — Autenticação": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283058734
+      }
+    ],
+    "4.1 Criar cliente Google Drive": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283058806
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284849390
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284964246
+      }
+    ],
+    "4.2 Escrever property test para ordenação de arquivos": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283058879
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284980065
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286561960
+      }
+    ],
+    "4.3 Implementar Route Handler de listagem de arquivos": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283058999
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284982674
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286564968
+      }
+    ],
+    "5.1 Criar componente MarkdownRenderer": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283059069
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286568189
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286728196
+      }
+    ],
+    "5.2 Escrever property test para sanitização do renderer": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283059138
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286734360
+      }
+    ],
+    "5.3 Implementar página de visualização de arquivo": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283059209
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286737511
+      }
+    ],
+    "6. Checkpoint — Renderização": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283059280
+      }
+    ],
+    "7.1 Implementar funções puras de cálculo de progresso": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283059337
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286571051
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286731162
+      }
+    ],
+    "7.2 Escrever property test para cálculo de progresso": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283059400
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286740295
+      }
+    ],
+    "7.3 Escrever property test para botões de navegação": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283059472
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286742969
+      }
+    ],
+    "7.4 Implementar Route Handler de marca-páginas": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283059552
+      },
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286745636
+      }
+    ],
+    "7.5 Escrever property test para round-trip de marca-página": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283059621
+      }
+    ],
+    "7.6 Implementar componente ScrollTracker": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283059686
+      }
+    ],
+    "7.7 Implementar componente BookmarkRestorer": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283059755
+      }
+    ],
+    "7.8 Implementar componente ProgressBar": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283059822
+      }
+    ],
+    "8. Checkpoint — Marca-páginas e progresso": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283059899
+      }
+    ],
+    "9.1 Implementar componente NavigationPanel": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283059980
+      }
+    ],
+    "9.2 Escrever property test para progresso na lista de arquivos": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283060056
+      }
+    ],
+    "9.3 Implementar drawer mobile e comportamento responsivo": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283060124
+      }
+    ],
+    "9.4 Implementar layout protegido e página home": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283060191
+      }
+    ],
+    "10. Checkpoint — Navegação e interface": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283060268
+      }
+    ],
+    "11.1 Criar Dockerfile multi-stage": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283060336
+      }
+    ],
+    "11.2 Criar docker-compose.yml e Caddyfile": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283060402
+      }
+    ],
+    "11.3 Adicionar script de seed e documentação de deploy": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283060471
+      }
+    ],
+    "12. Final checkpoint — Garantir que todos os testes passam": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793283060593
+      }
+    ],
+    "1. Configurar estrutura do projeto e dependências": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793284842038
+      }
+    ],
+    "2. Implementar autenticação": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286112967
+      }
+    ],
+    "4. Implementar integração com Google Drive": [
+      {
+        "executionId": "a13b313e-c20a-48b6-b6c6-abc1ccb71648",
+        "chatSessionId": "sess_fe9402fb-2315-42d7-9f41-72cb868a4dc5",
+        "timestamp": 1793286565069
+      }
+    ]
+  }
+}

@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MDview
 
-## Getting Started
+Aplicação Next.js para leitura pessoal de apostilas Markdown armazenadas localmente em SQLite.
 
-First, run the development server:
+## Desenvolvimento local
+
+Copie `.env.example` para `.env`, configure as variáveis e execute:
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Variáveis obrigatórias:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `JWT_SECRET`: segredo com pelo menos 32 caracteres.
+Variáveis opcionais:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `DATABASE_URL`: banco SQLite; padrão `./data/mdview.db`.
+- `PORT`: porta HTTP; padrão 3000.
+- `DOMAIN`: domínio público usado pelo Caddy.
+- `SEED_ADMIN_EMAIL` e `SEED_ADMIN_PASSWORD`: credenciais do primeiro administrador.
 
-## Learn More
+## Criar o administrador
 
-To learn more about Next.js, take a look at the following resources:
+No desenvolvimento:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run seed
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+O script exige uma senha com pelo menos 12 caracteres, usa bcrypt com custo 10 e não substitui um usuário existente.
 
-## Deploy on Vercel
+## Arquivos Markdown
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Faça login e clique em **Enviar arquivo Markdown** no topo da barra lateral. Arquivos podem ter até 2 MB e devem usar a extensão `.md`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Os arquivos são compartilhados globalmente e ficam armazenados diretamente no SQLite. Enviar novamente um arquivo com o mesmo nome substitui o conteúdo anterior.
+
+## Docker e Caddy
+
+Configure o DNS do domínio para apontar ao servidor, complete `.env` e execute:
+
+```bash
+docker compose build
+docker compose up -d
+```
+
+Crie o administrador usando o serviço de seed:
+
+```bash
+docker compose --profile seed run --rm seed
+```
+
+Os dados ficam em `sqlite_data:/app/data`; os certificados TLS ficam em `caddy_data`.

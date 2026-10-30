@@ -39,3 +39,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Database files
+data/
+*.db
+*.db-shm
+*.db-wal
+
+# Drizzle generated migrations metadata
+# drizzle/meta/ — uncomment to ignore migration metadata
+
+# Editor directories
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Docker
+docker-compose.override.yml

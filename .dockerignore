@@ -1,0 +1,11 @@
+.git
+.gitignore
+.next
+node_modules
+data
+*.db
+*.db-shm
+*.db-wal
+.env
+coverage
+test-results

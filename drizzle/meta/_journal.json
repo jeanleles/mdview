@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1793284775017,
+      "tag": "0000_slippery_texas_twister",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1793367737962,
+      "tag": "0001_add_local_markdown_files",
+      "breakpoints": true
+    }
+  ]
+}
