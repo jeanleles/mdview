@@ -254,7 +254,7 @@ export default function NavigationPanelClient({
               `}
               aria-current={active ? "page" : undefined}
             >
-              <span className="min-w-0 truncate">{file.name}</span>
+              <span className="min-w-0 truncate" title={file.name}>{file.name}</span>
               <span className="shrink-0 text-sm tabular-nums text-gray-600 dark:text-gray-400">
                 {progress}%
               </span>

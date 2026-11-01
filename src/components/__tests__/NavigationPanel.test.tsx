@@ -47,6 +47,15 @@ describe("NavigationPanelClient", () => {
     expect(screen.queryByText("Próximo Arquivo")).not.toBeInTheDocument();
   });
 
+  it("exibe o nome completo do arquivo como hint", () => {
+    render(<NavigationPanelClient files={files} bookmarks={[]} />);
+
+    expect(screen.getByText("Apostila B.md")).toHaveAttribute(
+      "title",
+      "Apostila B.md"
+    );
+  });
+
   it("mostra estado vazio sem progresso persistido como zero", () => {
     render(<NavigationPanelClient files={[]} bookmarks={[]} />);
     expect(screen.getByText("Nenhum arquivo encontrado")).toBeInTheDocument();
