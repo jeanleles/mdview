@@ -44,6 +44,8 @@ export default function ScrollTracker({
   );
 
   useEffect(() => {
+    const filePath = `/files/${encodeURIComponent(fileId)}`;
+
     emitBookmarkProgress({
       fileId,
       scrollPercent: progressRef.current,
@@ -64,6 +66,8 @@ export default function ScrollTracker({
     };
 
     const onScroll = () => {
+      if (window.location.pathname !== filePath) return;
+
       updateProgress();
       if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
       saveTimerRef.current = setTimeout(() => save(), 2000);

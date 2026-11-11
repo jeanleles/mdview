@@ -12,6 +12,7 @@ describe("ScrollTracker", () => {
     vi.useFakeTimers();
     const fetchMock = vi.fn().mockResolvedValue({ ok: true });
     vi.stubGlobal("fetch", fetchMock);
+    window.history.replaceState(null, "", "/files/file-a");
 
     Object.defineProperty(document.documentElement, "scrollHeight", {
       configurable: true,
@@ -71,6 +72,7 @@ describe("ScrollTracker", () => {
   it("emits bookmark progress when scrolling changes", () => {
     vi.useFakeTimers();
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: true }));
+    window.history.replaceState(null, "", "/files/file-a");
     const listener = vi.fn();
     window.addEventListener("mdview:bookmark-progress", listener);
 
@@ -99,5 +101,80 @@ describe("ScrollTracker", () => {
     expect(listener).toHaveBeenCalled();
     expect(listener.mock.calls[0][0]).toBeInstanceOf(CustomEvent);
     window.removeEventListener("mdview:bookmark-progress", listener);
+  });
+
+  it("preserves the last reading position when navigation resets scroll", () => {
+    vi.useFakeTimers();
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true });
+    vi.stubGlobal("fetch", fetchMock);
+    window.history.replaceState(null, "", "/files/file-a");
+
+    Object.defineProperty(document.documentElement, "scrollHeight", {
+      configurable: true,
+      value: 1000,
+    });
+    Object.defineProperty(window, "innerHeight", {
+      configurable: true,
+      value: 400,
+    });
+    Object.defineProperty(window, "scrollY", {
+      configurable: true,
+      value: 18,
+    });
+
+    const { unmount } = render(
+      <ScrollTracker
+        fileId="file-a"
+        fileName="Apostila A.md"
+        initialPercent={0}
+      />
+    );
+
+    fireEvent.scroll(window);
+    window.history.pushState(null, "", "/");
+    Object.defineProperty(window, "scrollY", { configurable: true, value: 0 });
+    fireEvent.scroll(window);
+    unmount();
+
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(JSON.parse(fetchMock.mock.calls[1][1].body)).toEqual({
+      fileId: "file-a",
+      fileName: "Apostila A.md",
+      scrollPercent: 3,
+    });
+  });
+
+  it("persists zero when the user manually scrolls to the top", () => {
+    vi.useFakeTimers();
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true });
+    vi.stubGlobal("fetch", fetchMock);
+    window.history.replaceState(null, "", "/files/file-a");
+
+    Object.defineProperty(document.documentElement, "scrollHeight", {
+      configurable: true,
+      value: 1000,
+    });
+    Object.defineProperty(window, "innerHeight", {
+      configurable: true,
+      value: 400,
+    });
+    Object.defineProperty(window, "scrollY", {
+      configurable: true,
+      value: 0,
+    });
+
+    render(
+      <ScrollTracker
+        fileId="file-a"
+        fileName="Apostila A.md"
+        initialPercent={50}
+      />
+    );
+
+    fireEvent.scroll(window);
+    vi.advanceTimersByTime(2000);
+
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(JSON.parse(fetchMock.mock.calls[1][1].body).scrollPercent).toBe(0);
   });
 });
