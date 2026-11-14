@@ -125,6 +125,29 @@ export default function NavigationPanelClient({
         <div className="flex items-center gap-1">
           <button
             type="button"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={uploading}
+            className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-60 dark:text-gray-200 dark:hover:bg-gray-800"
+            aria-label={uploading ? "Enviando arquivo" : "Enviar arquivo Markdown"}
+            title={uploading ? "Enviando..." : "Enviar arquivo Markdown"}
+          >
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5"
+            >
+              <path d="M12 16V4" />
+              <path d="M7 9l5-5 5 5" />
+              <path d="M5 20h14" />
+            </svg>
+          </button>
+          <button
+            type="button"
             onClick={toggleTheme}
             className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
             aria-label={darkMode ? "Ativar modo claro" : "Ativar modo escuro"}
@@ -161,11 +184,10 @@ export default function NavigationPanelClient({
           </button>
           <button
             type="button"
-            onClick={() => fileInputRef.current?.click()}
-            disabled={uploading}
-            className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-60 dark:text-gray-200 dark:hover:bg-gray-800"
-            aria-label={uploading ? "Enviando arquivo" : "Enviar arquivo Markdown"}
-            title={uploading ? "Enviando..." : "Enviar arquivo Markdown"}
+            onClick={logout}
+            className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-900"
+            aria-label="Sair"
+            title="Sair"
           >
             <svg
               aria-hidden="true"
@@ -177,9 +199,9 @@ export default function NavigationPanelClient({
               strokeLinejoin="round"
               className="h-5 w-5"
             >
-              <path d="M12 16V4" />
-              <path d="M7 9l5-5 5 5" />
-              <path d="M5 20h14" />
+              <path d="M10 17l5-5-5-5" />
+              <path d="M15 12H3" />
+              <path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5" />
             </svg>
           </button>
           <button
@@ -262,29 +284,6 @@ export default function NavigationPanelClient({
           );
         })}
       </nav>
-
-      <button
-        type="button"
-        onClick={logout}
-        className="m-3 flex min-h-11 min-w-11 self-end items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-900"
-        aria-label="Sair"
-        title="Sair"
-      >
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="h-5 w-5"
-        >
-          <path d="M10 17l5-5-5-5" />
-          <path d="M15 12H3" />
-          <path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5" />
-        </svg>
-      </button>
     </aside>
   );
 

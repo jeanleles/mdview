@@ -81,12 +81,24 @@ describe("NavigationPanelClient", () => {
     const uploadButton = screen.getByRole("button", {
       name: "Enviar arquivo Markdown",
     });
+    const themeButton = screen.getByRole("button", { name: "Ativar modo escuro" });
     const logoutButton = screen.getByRole("button", { name: "Sair" });
 
     expect(uploadButton.querySelector("svg")).toBeInTheDocument();
     expect(logoutButton.querySelector("svg")).toBeInTheDocument();
     expect(uploadButton).not.toHaveTextContent("Enviar arquivo Markdown");
     expect(logoutButton).not.toHaveTextContent("Sair");
+    expect(
+      Array.from(
+        screen
+          .getByRole("complementary", { name: "Painel de navegação" })
+          .querySelectorAll("button")
+      )
+        .slice(0, 3)
+        .map((button) => button.getAttribute("aria-label"))
+    ).toEqual(["Enviar arquivo Markdown", "Ativar modo escuro", "Sair"]);
+    expect(uploadButton.parentElement).toBe(themeButton.parentElement);
+    expect(themeButton.parentElement).toBe(logoutButton.parentElement);
   });
 
   it("alterna e persiste o tema entre claro e escuro", () => {
